@@ -141,7 +141,7 @@ console.log(greeting(newObj));
   Sum up the values and return the total number.
 */
 
-//Code Here
+// //Code Here
 // let populationByState = {
 //   utah: 200,
 //   carlifornia: 500,
@@ -149,13 +149,11 @@ console.log(greeting(newObj));
 //   arizona: 300,
 // };
 
-// function totalPopulation(obj) {
-//   let { utah, california, texas, arizona } = obj;
+function totalPopulation(obj) {
+  const { utah, california, texas, arizona } = obj;
 
-//   return parseInt(utah + california + texas + arizona);
-// }
-
-// console.log(totalPopulation(populationByState));
+  return utah + california + texas + arizona;
+}
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
 
@@ -169,24 +167,18 @@ console.log(greeting(newObj));
 
 //Code Here
 
-let items = {
-  starch: "rice",
-  oils: "avocado",
-  prots: "beef",
-};
+// let items = {
+//   starch: "rice",
+//   oils: "avocado",
+//   prots: "beef",
+// };
 
 function ingredients(obj) {
   let newArray = [];
-  //let { carb: starch, fat: oils, protein: prots } = obj;
-  for (let key in obj) {
-    newArray.push(key);
-  }
-  //console.log(newArray);
+  let { carb, fat, protein } = obj;
 
-  return newArray;
+  return [carb, fat, protein];
 }
-
-console.log(ingredients(items));
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
