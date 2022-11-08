@@ -113,25 +113,25 @@ console.log(year);
   The property names are firstName, lastName, and title.
 */
 
-// let newObj = {
-//   firstName: "Paul",
-//   lastName: "McCartney",
-//   title: "Sir",
-// };
+let newObj = {
+  firstName: "Paul",
+  lastName: "McCartney",
+  title: "Sir",
+};
 
 function greeting(obj) {
   //Code Here
 
-  // let { firstName: fName, lastName: lName, title: rank } = obj;
+  let { firstName, lastName, title } = obj;
 
   // Do not edit the code below.
   return "Hello, " + title + " " + firstName + " " + lastName + "!";
   // Do not edit the code above.
 }
 
-//greeting(newObj);
+console.log(greeting(newObj));
 
-//////////////////////////// PROBLEM 8 ////////////////////////////git 
+//////////////////////////// PROBLEM 8 ////////////////////////////git
 
 /*
   Write a function called totalPopulation that will take in an object.
@@ -142,6 +142,20 @@ function greeting(obj) {
 */
 
 //Code Here
+// let populationByState = {
+//   utah: 200,
+//   carlifornia: 500,
+//   texas: 400,
+//   arizona: 300,
+// };
+
+// function totalPopulation(obj) {
+//   let { utah, california, texas, arizona } = obj;
+
+//   return parseInt(utah + california + texas + arizona);
+// }
+
+// console.log(totalPopulation(populationByState));
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
 
@@ -154,6 +168,25 @@ function greeting(obj) {
 */
 
 //Code Here
+
+let items = {
+  starch: "rice",
+  oils: "avocado",
+  prots: "beef",
+};
+
+function ingredients(obj) {
+  let newArray = [];
+  //let { carb: starch, fat: oils, protein: prots } = obj;
+  for (let key in obj) {
+    newArray.push(key);
+  }
+  //console.log(newArray);
+
+  return newArray;
+}
+
+console.log(ingredients(items));
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
@@ -174,6 +207,13 @@ var user = {
 */
 
 //Code Here
+let fieldsToAdd = {
+  name: "Bryan G. Smith",
+  email: "bryan.smith@devmounta.in",
+};
+
+let modifiedUser = Object.assign(user, fieldsToAdd);
+console.log(modifiedUser);
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
@@ -181,6 +221,9 @@ var user = {
 */
 
 //Code Here
+
+delete user.age;
+console.log(user);
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
@@ -191,6 +234,16 @@ var user = {
 
 //Code here
 
+class Cat {
+  constructor(name, age, color) {
+    (this.name = name), (this.age = age), (this.color = color);
+  }
+}
+
+let myCat = new Cat("Whiskers", 3, "yellow");
+
+console.log(myCat.name);
+
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
   Create a class called 'Wizard'. Make sure to call your constructor, and require these 3 parameters: name, age, favoriteSpell.
@@ -200,6 +253,19 @@ var user = {
 */
 
 //Code here
+
+class Wizard {
+  constructor(name, age, favoriteSpell) {
+    (this.name = name), (this.age = age), (this.favoriteSpell = favoriteSpell);
+  }
+  castSpell() {
+    console.log(`${this.name} has cast ${this.favoriteSpell} `);
+  }
+}
+
+let gondor = new Wizard("Gondor", 899, "triple Strike");
+
+console.log(gondor.castSpell());
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -226,6 +292,24 @@ var user = {
 
 //Code Here
 
+class Phone {
+  constructor(brand, model, storage, color, price) {
+    (this.brand = brand),
+      (this.model = model),
+      (this.storage = storage),
+      (this.color = color),
+      (this.price = price),
+      (this.sold = false);
+  }
+  sell() {
+    this.sold = true;
+    console.log(`${this.brand} ${this.model} has been sold.`);
+  }
+  changePrice(newPrice) {
+    this.price = newPrice;
+  }
+}
+
 /*
     Next make three new phone instances using your class.
     Send in values of your choice. They should match these data types:
@@ -237,6 +321,9 @@ var user = {
 */
 
 //Code Here
+let phone1 = new Phone("apple", "iphone", "200", "silver", 1500);
+let phone2 = new Phone("samsung", "galaxy", "400", "blue", 1300);
+let phone3 = new Phone("google", "pixel", "450", "pink", 900);
 
 /* 
   Call the changePrice function on one of your phones, 
@@ -247,6 +334,9 @@ var user = {
 
 //Code Here
 
+phone3.changePrice(850);
+console.log(phone3);
+
 /*
   Now call the sell method on one of your other phone objects
 
@@ -254,6 +344,10 @@ var user = {
 */
 
 //Code Here
+
+phone1.sell();
+console.log(phone1);
+console.log(phone1.sold);
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
 
@@ -273,11 +367,16 @@ const colors = {
 
 //Code Here
 
+let colorsCopy = { ...colors };
+console.log(colorsCopy);
 /*
  Now use the spread operator to combine the following 2 objects into one. 
  Call the new variable helensInfo. 
  When they combine, none of the properties should be repeated.
 */
+
+let helensInfo = { ...colors, ...colorsCopy };
+console.log(helensInfo);
 
 //do not edit the objects below
 const contactInfo = {
